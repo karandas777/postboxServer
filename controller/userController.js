@@ -81,7 +81,32 @@ function remove(req,res){
     })
 }
 
+function verify(req,res){
+    User.findOne({email:req.body.email,password:req.body.password})
+    .then((data)=>{
+        if(data === null || data === undefined || data === ""){
+            res.json({
+                status:"NOK",
+                message:"User not found!"
+            })
+        }
+        else{
+            res.json({
+                status:"OK",
+                message:"User verified!"
+            })
+        }
+    })
+    .catch((err)=>{
+        res.json({
+            status:"NOK",
+            message:err
+        })
+    })
+}
+
 module.exports.add=add;
 module.exports.select=select;
 module.exports.edit=edit;
 module.exports.remove=remove;
+module.exports.verify=verify; 
