@@ -1,3 +1,5 @@
+var jwt = require('jsonwebtoken');
+
 var User = require('../model/userSchema');
 
 function add(req,res){
@@ -91,9 +93,11 @@ function verify(req,res){
             })
         }
         else{
+            var token = jwt.sign({data:data},"postbox",{expiresIn:30000});
             res.json({
                 status:"OK",
-                message:"User verified!"
+                message:"User verified!",
+                token:token,
             })
         }
     })
