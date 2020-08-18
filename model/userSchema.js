@@ -13,6 +13,10 @@ var schema = mongoose.Schema({
         type:String,
         require:true,
     },
+    imgurl:{
+        type:String,
+        require:true,
+    },
     password:{
         type:String,
         require:true,
