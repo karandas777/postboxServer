@@ -97,6 +97,8 @@ function verify(req,res){
             res.json({
                 status:"OK",
                 message:"User verified!",
+                _id:data._id,
+                name:data.name,
                 token:token,
             })
         }
