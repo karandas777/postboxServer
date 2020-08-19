@@ -113,8 +113,26 @@ function verify(req,res){
     })
 }
 
+function detail(req,res){
+    User.findOne({_id:req.body._id})
+    .then((data)=>{
+        res.json({
+            status:"OK",
+            message:data,
+        })
+    })
+    .catch((err)=>{
+        res.json({
+            status:"NOK",
+            message:err,
+        })
+    })
+
+}
+
 module.exports.add=add;
 module.exports.select=select;
 module.exports.edit=edit;
 module.exports.remove=remove;
 module.exports.verify=verify; 
+module.exports.detail=detail;

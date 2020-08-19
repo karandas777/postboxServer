@@ -14,6 +14,7 @@ router.get('/select-user',verification,user.select);
 router.post('/edit-user',verification,user.edit);
 router.post('/remove-user',verification,user.remove);
 router.post('/verify-user',user.verify);
+router.post('/user-detail',verification,user.detail);
 
 router.post('/add-post',verification,post.add);
 router.get('/select-post',verification,post.select);
